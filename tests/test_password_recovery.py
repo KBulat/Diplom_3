@@ -12,7 +12,7 @@ class TestPasswordRecovery:
         login_page.open_login_page()
         login_page.click_on_recovery_button()
 
-        assert driver.current_url == URLs.password_recovery_page
+        assert login_page.get_current_url() == URLs.password_recovery_page
 
     @allure.title("Проверка перехода на страницу сброса пароля при вводе почты и клике по кнопке 'Восстановить'")
     def test_password_reset_button(self, driver):
@@ -22,7 +22,7 @@ class TestPasswordRecovery:
         recovery_page.click_on_recovery_button()
         recovery_page.wait_for_reset_page_load()
 
-        assert driver.current_url == URLs.password_reset_page
+        assert recovery_page.get_current_url() == URLs.password_reset_page
 
     @allure.title("Проверка активности поля с паролем после клика по кнопке показать/скрыть пароль")
     def test_password_field_activation_after_click_on_switcher(self, driver):

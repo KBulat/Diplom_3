@@ -104,7 +104,7 @@ class MainPage(BasePage):
     def get_order_id_in_modal(self):
         element = self.find_visible_element(MainPageLocators.order_id)
         self.wait_for_text_to_change(MainPageLocators.order_id, '9999')
-        text = self.driver.execute_script("return arguments[0].textContent.trim();", element)
+        text = self.get_element_text_via_js(element)
         return text.lstrip('0') or '0'        
     
     @allure.step("Закрыть окно с деталями заказа")

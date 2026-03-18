@@ -80,4 +80,8 @@ class BasePage:
     @allure.step("Дождаться кликабельности ссылки на ленту заказов")
     def wait_for_order_feed_to_be_clickable(self):
         self.find_clickable_element(MainPageLocators.order_feed)
+
+    @allure.step("Получить текст элемента через JS")
+    def get_element_text_via_js(self, element):
+        return self.driver.execute_script("return arguments[0].textContent.trim();", element)
         
