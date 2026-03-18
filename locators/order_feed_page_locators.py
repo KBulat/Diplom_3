@@ -9,3 +9,7 @@ class OrderFeedPageLocators:
     completed_orders_count = (By.XPATH, "//p[text()='Готовы:']/following-sibling::ul[1]/li")
     order_id = (By.XPATH, "//h2[contains(@class, 'text_type_digits-large')]")
     orders_in_progress = (By.XPATH, ".//ul[contains(@class,'OrderFeed_orderListReady')]/li[contains(@class,'text_type_digits-default')]")
+
+    @staticmethod
+    def order_in_work_by_id(order_id):
+        return (By.XPATH, f"//ul[contains(@class, 'orderListReady')]/li[text()='{order_id}']")

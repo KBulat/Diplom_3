@@ -1,7 +1,6 @@
 import allure
 from data import URLs, INGREDIENTS
 from locators.main_page_locators import MainPageLocators
-from selenium.webdriver.common.by import By
 from pages.base_page import BasePage
 
 
@@ -95,8 +94,7 @@ class MainPage(BasePage):
     
     @allure.step("Проверить наличие заказа с id {order_id} в ленте")
     def is_order_in_feed(self,  order_id):
-        formatted_id = f"#{order_id}"
-        order_id_in_feed_locator = (By.XPATH, f"//ul[contains(@class, 'OrderFeed_list')]//p[contains(@class, 'text_type_digits-default') and text()='{formatted_id}']")
+        order_id_in_feed_locator = MainPageLocators.order_in_feed_by_id(order_id)
         element = self.find_visible_element(order_id_in_feed_locator)
         return element.is_displayed()
     

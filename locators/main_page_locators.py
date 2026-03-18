@@ -26,3 +26,8 @@ class MainPageLocators:
     @staticmethod
     def ingredient_counter_by_name(name):
         return (By.XPATH, f"//p[text()='{name}']/ancestor::a[contains(@class, 'BurgerIngredient')]//p[contains(@class, 'counter_counter__num')]")
+    
+    @staticmethod
+    def order_in_feed_by_id(order_id):
+        formatted_id = f"#{order_id}"
+        return (By.XPATH, f"//ul[contains(@class, 'OrderFeed_list')]//p[contains(@class, 'text_type_digits-default') and text()='{formatted_id}']")

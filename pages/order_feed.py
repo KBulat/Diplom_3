@@ -1,5 +1,4 @@
 import allure
-from selenium.webdriver.common.by import By
 from locators.order_feed_page_locators import OrderFeedPageLocators
 from pages.base_page import BasePage
 
@@ -42,5 +41,5 @@ class OrderFeedPage(BasePage):
         
     @allure.step("Дождаться появления конкретного заказа в списке 'В работе'")
     def wait_for_specific_order_in_work_list(self, order_id):
-        locator = (By.XPATH, f"//ul[contains(@class, 'orderListReady')]/li[text()='{order_id}']")
+        locator = OrderFeedPageLocators.order_in_work_by_id(order_id)
         self.find_visible_element(locator)
