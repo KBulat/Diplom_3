@@ -1,5 +1,5 @@
 import allure
-from data import URLs
+from data import URLs, Credentials
 from pages.login_page import LoginPage
 from pages.password_recovery import PasswordRecoveryPage
 
@@ -18,7 +18,7 @@ class TestPasswordRecovery:
     def test_password_reset_button(self, driver):
         recovery_page = PasswordRecoveryPage(driver)
         recovery_page.open_recover_password_page()
-        recovery_page.fill_email_field("test@mail.ru")
+        recovery_page.fill_email_field(Credentials.test_email)
         recovery_page.click_on_recovery_button()
         recovery_page.wait_for_reset_page_load()
 
@@ -28,7 +28,7 @@ class TestPasswordRecovery:
     def test_password_field_activation_after_click_on_switcher(self, driver):
         recovery_page = PasswordRecoveryPage(driver)
         recovery_page.open_recover_password_page()
-        recovery_page.fill_email_field("test@mail.ru")
+        recovery_page.fill_email_field(Credentials.test_email)
         recovery_page.click_on_recovery_button()
         recovery_page.wait_for_reset_page_load()
         recovery_page.click_on_show_password_button()

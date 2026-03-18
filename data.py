@@ -12,6 +12,7 @@ class URLs:
 class Credentials:
     email = "stellar_email@mail.ru"
     password = "wLSFA8vnvQ"
+    test_email = "test@mail.ru"
 
 
 INGREDIENTS = [
